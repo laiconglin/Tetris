@@ -1,7 +1,7 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2008
 
-Project("{BE66DA06-ACAB-B58B-89C3-BB1AEF36F0E2}") = "TetrisPro", "Assembly-CSharp.csproj", "{4AD4107E-3946-AC62-50E3-C5696E3F5CB9}"
+Project("{C34082D2-7001-82FD-2467-552F47995D29}") = "Tetris", "Assembly-CSharp.csproj", "{D2BFFF02-D087-DB1A-C7FE-6538A965A290}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,15 +9,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4AD4107E-3946-AC62-50E3-C5696E3F5CB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4AD4107E-3946-AC62-50E3-C5696E3F5CB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4AD4107E-3946-AC62-50E3-C5696E3F5CB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4AD4107E-3946-AC62-50E3-C5696E3F5CB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2BFFF02-D087-DB1A-C7FE-6538A965A290}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2BFFF02-D087-DB1A-C7FE-6538A965A290}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2BFFF02-D087-DB1A-C7FE-6538A965A290}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2BFFF02-D087-DB1A-C7FE-6538A965A290}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-									GlobalSection(MonoDevelopProperties) = preSolution
+		GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1
