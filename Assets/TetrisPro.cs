@@ -10,6 +10,7 @@ public class TetrisPro : MonoBehaviour
 	private const int BLOCK_WIDTH = 20;
 	private const int BLOCK_HEIGHT = 20;
 	private const int SCORE_STAGE = 1000;
+	private const float REACT_TIME = 0.5f;
 	int row;
 	int col;
 	public GUISkin myskin = null;
@@ -20,9 +21,11 @@ public class TetrisPro : MonoBehaviour
 	float lastTime = 0.0f;
 	float fallingSpeed = 1.0f;
 	float startAnimationTime = 0.0f;
+	float startGetGroundedTime = 0.0f;
 	int stage = 0;
 	int score = 0;
 	bool isInEffectAnimation = false;
+	bool isFirstGrounded = false;
 	int countedFill = 0;
 	private static int[] filledRows = new int[MAX_ROW];
 	TetrisBlock curBlock;
@@ -180,15 +183,22 @@ public class TetrisPro : MonoBehaviour
 		
 		if (IsGrounded ()) {
 			//updateStateByBlock(this.ghostBlock, 0);
-			this.countedFill = this.checkFilledLines ();
-			if (this.countedFill > 0) {
-				this.score += this.countedFill * this.countedFill * 100;
-				this.isInEffectAnimation = true;
-				startAnimationTime = Time.time;
-			} else {
-				this.countedFill = 0;
+			//add immediate react response
+			if (this.isFirstGrounded == false) {
+				this.isFirstGrounded = true;
+				this.startGetGroundedTime = Time.time;
+			}
+			if (Time.time - this.startGetGroundedTime - REACT_TIME > 0) {
+				this.countedFill = this.checkFilledLines ();
+				if (this.countedFill > 0) {
+					this.score += this.countedFill * this.countedFill * 100;
+					this.isInEffectAnimation = true;
+					startAnimationTime = Time.time;
+				} else {
+					this.countedFill = 0;
 
-				GenNewBlock ();
+					GenNewBlock ();
+				}
 			}
 			
 		} else {
@@ -198,6 +208,7 @@ public class TetrisPro : MonoBehaviour
 			this.ghostBlock.diffRow = this.curBlock.diffRow;
 			this.ghostBlock.diffCol = this.curBlock.diffCol;
 			updateStateByBlock (this.ghostBlock, 3);
+			this.isFirstGrounded = false;
 		}
 
 	}
@@ -298,7 +309,7 @@ public class TetrisPro : MonoBehaviour
 	void StageManager ()
 	{
 		this.stage = (int)(this.score / SCORE_STAGE);
-		this.fallingSpeed = 0.4f + 0.6f * 10 /(this.stage + 10);
+		this.fallingSpeed = 0.4f + 0.6f * 10 / (this.stage + 10);
 	}
 
 	bool IsFillingLine (int targetRow)
