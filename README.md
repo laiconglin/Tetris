@@ -22,3 +22,6 @@ In Unity, File -> Open Project -> Open Other -> Select to the Tetris
 <br />
 ![github](https://raw.github.com/laiconglin/Tetris/master/screenshot/game.png "Game")
 
+
+
+have fun
